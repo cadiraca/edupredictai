@@ -27,6 +27,7 @@ ENV/
 .venv
 
 # Jupyter Notebook
+*.ipynb
 .ipynb_checkpoints
 *.ipynb_checkpoints/
 
@@ -60,18 +61,30 @@ logs/
 
 # Model files (if needed to exclude large models)
 # Uncomment if you want to exclude the model from git
-# *.pkl
+*.pkl
 # *.joblib
 
 # Data files
 # Uncomment if you have large CSV files to exclude
-# *.csv
+*.csv
 # !small-sample.csv
+*.ipynb
+*.yml
 
 # SAP BTP / Cloud Foundry
 .cfignore
+manifest.yml
 manifest-*.yml
+
+# Documentation files (keep local only)
+IMPLEMENTATION_PLAN.md
+PROGRESS_REPORT.md
+DEPLOY_README.md
 
 # OS
 Thumbs.db
 .DS_Store
+
+#no specific files
+IMPLEMENTATION_PLAN.md
+PROGRESS_REPORT.md
