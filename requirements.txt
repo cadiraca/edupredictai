@@ -1,13 +1,18 @@
-jupyter
-ipykernel
+# Production Dependencies for SAP BTP Deployment
+# Excludes Jupyter, notebooks, and other dev-only packages
+
+# Core dependencies
 pandas
 numpy
-matplotlib
-seaborn
 scikit-learn
-hana_ml
+joblib
+
+# API framework
 fastapi
 uvicorn[standard]
 pydantic
 python-multipart
-joblib
+
+# Optional: If you need data visualization in API
+matplotlib
+seaborn

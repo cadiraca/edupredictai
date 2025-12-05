@@ -268,21 +268,21 @@ class DropoutPredictor:
 # ==============================================================================
 # EXAMPLE USAGE
 # ==============================================================================
-if __name__ == "__main__":
-    predictor = DropoutPredictor()
+#if __name__ == "__main__":
+    #predictor = DropoutPredictor()
     #df = pd.read_csv('Municipios.csv')
     #predictor.train(df) # Assuming 'df' is loaded
     
     # # Save it for later
     #predictor.save_model()
 
-    predictor.load_model()
+    #predictor.load_model()
 
     #print("Here is why the model predicts what it predicts:")
-    predictor.plot_feature_importance()
+    #predictor.plot_feature_importance()
 
     #print("And here is the proof that it understands the Population Curve:")
-    predictor.plot_population_curve()    
+    #predictor.plot_population_curve()    
     
     # # Ask for Cali
     #pred, stats = predictor.predict_for_municipality(

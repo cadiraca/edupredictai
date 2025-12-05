@@ -14,5 +14,5 @@ pydantic
 python-multipart
 
 # Optional: If you need data visualization in API
-matplotlib
-seaborn
+#matplotlib
+#seaborn

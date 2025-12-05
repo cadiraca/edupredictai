@@ -1,0 +1,13 @@
+jupyter
+ipykernel
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+hana_ml
+fastapi
+uvicorn[standard]
+pydantic
+python-multipart
+joblib
