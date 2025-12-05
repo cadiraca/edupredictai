@@ -13,7 +13,7 @@ const ENV_CONFIG = {
         // IMPORTANT: Replace this URL after deploying to SAP BTP
         // Format: https://your-app-name.cfapps.[region].hana.ondemand.com
         // Example regions: eu10, us10, ap21, etc.
-        production: 'https://edupredict-api.cfapps.us10-001.hana.ondemand.com/'
+        production: 'https://edupredict-api.cfapps.us10-001.hana.ondemand.com'
     },
     
     // GitHub Pages URLs (for reference)
