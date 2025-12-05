@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduPredict AI - Educational Analytics Platform</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Chart.js v4 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <!-- Sticky Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="icon">🎓</span>
+                <span class="brand-text">EduPredict AI</span>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <div class="nav-links desktop">
+                <button class="nav-item active" data-view="landing" data-en="The Concept" data-es="El Concepto">The Concept</button>
+                <button class="nav-item" data-view="dashboard" data-en="Analytics" data-es="Analítica">Analytics</button>
+                <button class="nav-item" data-view="simulator" data-en="Simulator" data-es="Simulador">Simulator</button>
+            </div>
+            
+            <!-- Language Toggle -->
+            <button class="language-toggle" id="languageToggle" title="Switch Language">
+                🌐 <span id="currentLang">EN</span>
+            </button>
+            
+            <!-- Mobile Hamburger -->
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <button class="nav-item mobile" data-view="landing" data-en="The Concept" data-es="El Concepto">The Concept</button>
+            <button class="nav-item mobile" data-view="dashboard" data-en="Analytics" data-es="Analítica">Analytics</button>
+            <button class="nav-item mobile" data-view="simulator" data-en="Simulator" data-es="Simulador">Simulator</button>
+        </div>
+    </nav>
+
+    <!-- VIEW 1: LANDING PAGE -->
+    <section class="view-landing" style="display: block;">
+        
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-pattern"></div>
+            <div class="hero-content">
+                <div class="badge">
+                    <span class="icon">🧠</span>
+                    <span data-en="Beyond the GenAI Hype" data-es="Más Allá del Hype de GenAI">Beyond the GenAI Hype</span>
+                </div>
+                <h1 class="hero-title">
+                    <span data-en="Solving Social Problems with" data-es="Resolviendo Problemas Sociales con">Solving Social Problems with</span>
+                    <span class="gradient-text" data-en="Predictive Intelligence" data-es="Inteligencia Predictiva">Predictive Intelligence</span>
+                </h1>
+                <p class="hero-subtitle" data-en="While the world asks ChatGPT to write poems, we are using Random Forests to identify at-risk students before they drop out." data-es="Mientras el mundo le pide a ChatGPT que escriba poemas, nosotros usamos Random Forests para identificar estudiantes en riesgo antes de que abandonen.">
+                    While the world asks ChatGPT to write poems, we are using Random Forests to identify at-risk students before they drop out.
+                </p>
+                <button class="btn-primary" data-navigate="dashboard">
+                    <span data-en="Explore the Data" data-es="Explorar los Datos">Explore the Data</span> →
+                </button>
+            </div>
+        </section>
+
+        <!-- Philosophy Section -->
+        <section class="philosophy">
+            <div class="container">
+                <div class="grid-2">
+                    <div class="content">
+                        <h2 data-en="The Right Tool for the Job" data-es="La Herramienta Correcta para el Trabajo">The Right Tool for the Job</h2>
+                        <p data-en="There is a misconception that GenAI (like GPT) can predict the future. It cannot. GenAI is a reasoning engine - it explains, codes, and creates. But for numerical prediction? We need Classical Machine Learning." data-es="Existe la idea errónea de que GenAI (como GPT) puede predecir el futuro. No puede. GenAI es un motor de razonamiento: explica, codifica y crea. ¿Pero para predicción numérica? Necesitamos Machine Learning Clásico.">
+                            There is a misconception that GenAI (like GPT) can predict the future. It cannot. GenAI is a reasoning engine - it explains, codes, and creates. But for numerical prediction? We need Classical Machine Learning.
+                        </p>
+                        <p data-en="For finding patterns in numbers (like dropout rates across 14 years of municipal data), Random Forests and Gradient Boosting are the real MVPs." data-es="Para encontrar patrones en números (como tasas de deserción en 14 años de datos municipales), Random Forests y Gradient Boosting son los verdaderos MVPs.">
+                            For finding patterns in numbers (like dropout rates across 14 years of municipal data), Random Forests and Gradient Boosting are the real MVPs.
+                        </p>
+                    </div>
+                    <div class="cards">
+                        <div class="card purple-border">
+                            <div class="card-icon purple">🧠</div>
+                            <h3 data-en="GenAI (The Architect)" data-es="GenAI (El Arquitecto)">GenAI (The Architect)</h3>
+                            <p data-en="Great for reasoning, coding, explaining concepts, and creative tasks." data-es="Excelente para razonar, codificar, explicar conceptos y tareas creativas.">
+                                Great for reasoning, coding, explaining concepts, and creative tasks.
+                            </p>
+                        </div>
+                        <div class="card emerald-border featured">
+                            <div class="card-icon emerald">📊</div>
+                            <h3 data-en="Predictive ML (The Engine)" data-es="ML Predictivo (El Motor)">Predictive ML (The Engine)</h3>
+                            <p data-en="Great for finding patterns in numbers, forecasting outcomes, and quantifying risk." data-es="Excelente para encontrar patrones en números, pronosticar resultados y cuantificar riesgos.">
+                                Great for finding patterns in numbers, forecasting outcomes, and quantifying risk.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Problem Section -->
+        <section class="problem">
+            <div class="container">
+                <h2 data-en="Why School Dropout?" data-es="¿Por Qué la Deserción Escolar?">Why School Dropout?</h2>
+                <p class="section-subtitle" data-en="In Colombia, dropout is not random - it follows structural patterns we can measure and predict." data-es="En Colombia, la deserción no es aleatoria: sigue patrones estructurales que podemos medir y predecir.">
+                    In Colombia, dropout is not random - it follows structural patterns we can measure and predict.
+                </p>
+                <div class="grid-3">
+                    <div class="card">
+                        <div class="card-icon red">⚠️</div>
+                        <h3 data-en="The Funnel Effect" data-es="El Efecto Embudo">The Funnel Effect</h3>
+                        <p data-en="Thousands enter Primary, but the system 'chokes' at High School. Insufficient capacity = dropout." data-es="Miles entran a Primaria, pero el sistema se 'ahoga' en Secundaria. Capacidad insuficiente = deserción.">
+                            Thousands enter Primary, but the system "chokes" at High School. Insufficient capacity = dropout.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon amber">🔁</div>
+                        <h3 data-en="Grade Repetition" data-es="Repitencia Escolar">Grade Repetition</h3>
+                        <p data-en="Students who repeat grades are more likely to drop out. Repetition is a leading indicator of risk." data-es="Los estudiantes que repiten grados tienen más probabilidades de desertar. La repitencia es un indicador líder de riesgo.">
+                            Students who repeat grades are more likely to drop out. Repetition is a leading indicator of risk.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon purple">📐</div>
+                        <h3 data-en="Over-Age Gap" data-es="Brecha de Edad">Over-Age Gap</h3>
+                        <p data-en="When students are older than their grade level, stigma and peer pressure increase dropout likelihood." data-es="Cuando los estudiantes son mayores que su nivel de grado, el estigma y la presión de los compañeros aumentan la probabilidad de deserción.">
+                            When students are older than their grade level, stigma and peer pressure increase dropout likelihood.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </section>
+
+    <!-- VIEW 2: ANALYTICS DASHBOARD -->
+    <section class="view-dashboard" style="display: none;">
+        <div class="container">
+            
+            <!-- Dashboard Header -->
+            <div class="dashboard-header">
+                <div>
+                    <h2 data-en="National Analytics Dashboard" data-es="Panel de Analítica Nacional">National Analytics Dashboard</h2>
+                    <p class="subtitle" data-en="Historical Analysis 2011-2024" data-es="Análisis Histórico 2011-2024">Historical Analysis 2011-2024</p>
+                </div>
+                <div class="badge" data-en="Data Source: Open Data Colombia" data-es="Fuente: Datos Abiertos Colombia">Data Source: Open Data Colombia</div>
+            </div>
+            
+            <!-- KPI Cards -->
+            <div class="kpi-grid">
+                <div class="kpi-card red-accent">
+                    <div class="kpi-label" data-en="Current Dropout Rate" data-es="Tasa de Deserción Actual">Current Dropout Rate</div>
+                    <div class="kpi-value" id="kpi-dropout">--</div>
+                    <div class="kpi-change" id="kpi-dropout-change">-- vs last year</div>
+                </div>
+                <div class="kpi-card blue-accent">
+                    <div class="kpi-label" data-en="Total Students" data-es="Total de Estudiantes">Total Students</div>
+                    <div class="kpi-value" id="kpi-students">--</div>
+                    <div class="kpi-change" id="kpi-students-change">Age 5-16 nationwide</div>
+                </div>
+                <div class="kpi-card emerald-accent">
+                    <div class="kpi-label" data-en="Funnel Efficiency" data-es="Eficiencia del Embudo">Funnel Efficiency</div>
+                    <div class="kpi-value" id="kpi-funnel">--</div>
+                    <div class="kpi-change" id="kpi-funnel-change">Primary → High School</div>
+                </div>
+                <div class="kpi-card purple-accent">
+                    <div class="kpi-label" data-en="High-Risk Departments" data-es="Departamentos de Alto Riesgo">High-Risk Departments</div>
+                    <div class="kpi-value" id="kpi-risk">--</div>
+                    <div class="kpi-change" id="kpi-risk-change">Dropout > 6%</div>
+                </div>
+            </div>
+            
+            <!-- Chart Row 1 -->
+            <div class="chart-row">
+                <div class="chart-card-large">
+                    <h3 data-en="Historical Dropout Trend (2011-2024)" data-es="Tendencia Histórica de Deserción (2011-2024)">Historical Dropout Trend (2011-2024)</h3>
+                    <div class="chart-container">
+                        <canvas id="trendChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card-small">
+                    <h3 data-en="Regional Risk Heatmap" data-es="Mapa de Riesgo Regional">Regional Risk Heatmap</h3>
+                    <div id="departmentList" class="dept-list">
+                        <div class="loading-small" data-en="Loading..." data-es="Cargando...">Loading...</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chart Row 2 -->
+            <div class="chart-row">
+                <div class="chart-card-full">
+                    <h3 data-en="The 'Funnel Effect' Analysis" data-es="Análisis del 'Efecto Embudo'">The "Funnel Effect" Analysis</h3>
+                    <p class="chart-description" data-en="Student population vs. system capacity over time" data-es="Población estudiantil vs. capacidad del sistema en el tiempo">
+                        Student population vs. system capacity over time
+                    </p>
+                    <div class="chart-container">
+                        <canvas id="funnelChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div id="dashboardLoading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p data-en="Loading analytics data..." data-es="Cargando datos de analítica...">Loading analytics data...</p>
+            </div>
+
+            <!-- Error State -->
+            <div id="dashboardError" class="error-message" style="display: none;"></div>
+
+        </div>
+    </section>
+
+    <!-- VIEW 3: SIMULATOR -->
+    <section class="view-simulator" style="display: none;">
+        <div class="sim-container">
+            
+            <!-- Header Section -->
+            <div class="sim-header">
+                <div>
+                    <h1 class="sim-title" data-en="Secretary of Education Simulator" data-es="Simulador del Secretario de Educación">Secretary of Education Simulator</h1>
+                    <p class="sim-subtitle" data-en="School Dropout Prediction - Colombia" data-es="Predicción de Deserción Escolar - Colombia">Predicción de Deserción Escolar - Colombia</p>
+                </div>
+                <div class="sim-actions">
+                    <button id="resetButton" class="btn-reset">
+                        <span class="btn-icon">🔄</span>
+                        <span data-en="Reset" data-es="Reiniciar">Reiniciar</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dashboard Grid Layout -->
+            <div class="sim-grid">
+                
+                <!-- Left Column: Controls (3 columns) -->
+                <div class="sim-sidebar">
+                    
+                    <!-- Control Panel Card -->
+                    <div class="control-card">
+                        <div class="control-header">
+                            <span class="control-icon">📍</span>
+                            <h2 data-en="Territory" data-es="Territorio">Territorio</h2>
+                        </div>
+                        
+                        <div class="control-body">
+                            <div class="form-group">
+                                <label for="department" data-en="Department" data-es="Departamento">Departamento</label>
+                                <div class="select-wrapper">
+                                    <select id="department" class="form-select">
+                                        <option value="" data-en="Loading departments..." data-es="Cargando departamentos...">Cargando departamentos...</option>
+                                    </select>
+                                    <span class="select-icon">▼</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="municipality" data-en="Municipality" data-es="Municipio">Municipio</label>
+                                <div class="select-wrapper">
+                                    <select id="municipality" class="form-select" disabled>
+                                        <option value="" data-en="First select a department" data-es="Primero seleccione un departamento">Primero seleccione un departamento</option>
+                                    </select>
+                                    <span class="select-icon">▼</span>
+                                </div>
+                            </div>
+
+                            <button id="loadButton" class="btn-load" disabled data-en="Load Data" data-es="Cargar Datos">
+                                Cargar Datos
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Context Stats (Population) -->
+                    <div class="context-card">
+                        <h3 class="context-title" data-en="Student Population" data-es="Población Estudiantil">Población Estudiantil</h3>
+                        <div class="context-stat">
+                            <span class="context-label" data-en="Total (ages 5-16)" data-es="Total (5-16 años)">Total (5-16 años)</span>
+                            <span class="context-value" id="population">-</span>
+                        </div>
+                        <div class="context-bar">
+                            <div class="context-bar-fill"></div>
+                        </div>
+                        <div class="context-note" id="municipalityName" data-en="Select a municipality to view data" data-es="Seleccione un municipio para ver datos">
+                            Seleccione un municipio para ver datos
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Column: Stats & Simulator (9 columns) -->
+                <div class="sim-main">
+                    
+                    <!-- Key Metrics Row - The "Tiles" -->
+                    <div class="stat-tiles" id="statTiles" style="display: none;">
+                        <div class="stat-tile tile-emerald">
+                            <div class="tile-accent"></div>
+                            <div class="tile-header">
+                                <h3 class="tile-label" data-en="Budget" data-es="Presupuesto">Presupuesto</h3>
+                                <span class="tile-icon">💰</span>
+                            </div>
+                            <div class="tile-body">
+                                <div class="tile-value" id="budget">$10,000k</div>
+                                <div class="tile-subtext" data-en="Available" data-es="Disponible">Disponible</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-tile tile-blue">
+                            <div class="tile-accent"></div>
+                            <div class="tile-header">
+                                <h3 class="tile-label" data-en="Dropout Rate" data-es="Tasa de Deserción">Tasa de Deserción</h3>
+                                <span class="tile-icon">📉</span>
+                            </div>
+                            <div class="tile-body">
+                                <div class="tile-value" id="currentRate">--%</div>
+                                <div class="tile-trend" id="trendIndicator"></div>
+                            </div>
+                        </div>
+
+                        <div class="stat-tile tile-amber">
+                            <div class="tile-accent"></div>
+                            <div class="tile-header">
+                                <h3 class="tile-label" data-en="Students at Risk" data-es="Estudiantes en Riesgo">Estudiantes en Riesgo</h3>
+                                <span class="tile-icon">⚠️</span>
+                            </div>
+                            <div class="tile-body">
+                                <div class="tile-value" id="studentsAtRisk">0</div>
+                                <div class="tile-subtext" data-en="High Priority" data-es="Alta Prioridad">Alta Prioridad</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-tile tile-indigo">
+                            <div class="tile-accent"></div>
+                            <div class="tile-header">
+                                <h3 class="tile-label" data-en="Safe Students" data-es="Estudiantes Seguros">Estudiantes Seguros</h3>
+                                <span class="tile-icon">✅</span>
+                            </div>
+                            <div class="tile-body">
+                                <div class="tile-value" id="studentsContinuing">0</div>
+                                <div class="tile-subtext" data-en="Projection" data-es="Proyección">Proyección</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Investments Grid -->
+                    <div class="investments-section" id="investmentsSection" style="display: none;">
+                        <div class="investments-header">
+                            <div>
+                                <h2 class="investments-title" data-en="Strategic Investments" data-es="Inversiones Estratégicas">Inversiones Estratégicas</h2>
+                                <p class="investments-subtitle" data-en="Select strategies to reduce school dropout." data-es="Selecciona estrategias para reducir la deserción escolar.">Selecciona estrategias para reducir la deserción escolar.</p>
+                            </div>
+                            <div id="budgetWarning" class="budget-warning" style="display: none;">
+                                <span class="warning-icon">⚠️</span>
+                                <span data-en="Critical Budget" data-es="Presupuesto Crítico">Presupuesto Crítico</span>
+                            </div>
+                        </div>
+
+                        <div class="investments-grid">
+                            
+                            <!-- Investment Card 1: Infrastructure -->
+                            <div class="investment-card">
+                                <div class="investment-header">
+                                    <div class="investment-icon icon-blue">🏫</div>
+                                    <span class="investment-cost">$3,000k</span>
+                                </div>
+                                <h3 class="investment-title" data-en="Expand High School Capacity" data-es="Expandir Capacidad de Secundaria">Expandir Capacidad de Secundaria</h3>
+                                <p class="investment-description" data-en="Improves the &quot;educational funnel&quot; (primary → high school)" data-es="Mejora el &quot;embudo educativo&quot; (primaria → secundaria)">
+                                    Mejora el "embudo educativo" (primaria → secundaria)
+                                </p>
+                                <div class="investment-footer">
+                                    <div class="investment-level-info">
+                                        <span class="level-label"><span data-en="Cost:" data-es="Costo:">Costo:</span> <strong>$3,000k</strong></span>
+                                        <span class="level-label"><span data-en="Level:" data-es="Nivel:">Nivel:</span> <strong class="level-value" id="level-infrastructure">0</strong>/3</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-step" data-step="1"></div>
+                                        <div class="progress-step" data-step="2"></div>
+                                        <div class="progress-step" data-step="3"></div>
+                                    </div>
+                                    <button class="btn-invest" data-investment="infrastructure" data-cost="3000" data-en="Invest" data-es="Invertir">
+                                        Invertir
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Investment Card 2: Academic Support -->
+                            <div class="investment-card">
+                                <div class="investment-header">
+                                    <div class="investment-icon icon-indigo">📚</div>
+                                    <span class="investment-cost">$1,500k</span>
+                                </div>
+                                <h3 class="investment-title" data-en="Academic Support" data-es="Apoyo Académico">Apoyo Académico</h3>
+                                <p class="investment-description" data-en="Reduces repetition rate with personalized tutoring" data-es="Reduce la tasa de repitencia con tutorías personalizadas">
+                                    Reduce la tasa de repitencia con tutorías personalizadas
+                                </p>
+                                <div class="investment-footer">
+                                    <div class="investment-level-info">
+                                        <span class="level-label"><span data-en="Cost:" data-es="Costo:">Costo:</span> <strong>$1,500k</strong></span>
+                                        <span class="level-label"><span data-en="Level:" data-es="Nivel:">Nivel:</span> <strong class="level-value" id="level-quality">0</strong>/3</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-step" data-step="1"></div>
+                                        <div class="progress-step" data-step="2"></div>
+                                        <div class="progress-step" data-step="3"></div>
+                                    </div>
+                                    <button class="btn-invest" data-investment="quality" data-cost="1500" data-en="Invest" data-es="Invertir">
+                                        Invertir
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Investment Card 3: Bridge Programs -->
+                            <div class="investment-card">
+                                <div class="investment-header">
+                                    <div class="investment-icon icon-sky">🎓</div>
+                                    <span class="investment-cost">$1,000k</span>
+                                </div>
+                                <h3 class="investment-title" data-en="Bridge Programs" data-es="Programas Puente">Programas Puente</h3>
+                                <p class="investment-description" data-en="Reduces the over-age gap" data-es="Reduce la brecha de edad (over-age gap)">
+                                    Reduce la brecha de edad (over-age gap)
+                                </p>
+                                <div class="investment-footer">
+                                    <div class="investment-level-info">
+                                        <span class="level-label"><span data-en="Cost:" data-es="Costo:">Costo:</span> <strong>$1,000k</strong></span>
+                                        <span class="level-label"><span data-en="Level:" data-es="Nivel:">Nivel:</span> <strong class="level-value" id="level-coverage">0</strong>/3</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-step" data-step="1"></div>
+                                        <div class="progress-step" data-step="2"></div>
+                                        <div class="progress-step" data-step="3"></div>
+                                    </div>
+                                    <button class="btn-invest" data-investment="coverage" data-cost="1000" data-en="Invest" data-es="Invertir">
+                                        Invertir
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Investment Card 4: Staffing -->
+                            <div class="investment-card">
+                                <div class="investment-header">
+                                    <div class="investment-icon icon-violet">👨‍🏫</div>
+                                    <span class="investment-cost">$4,000k</span>
+                                </div>
+                                <h3 class="investment-title" data-en="Hire Teachers" data-es="Contratar Docentes">Contratar Docentes</h3>
+                                <p class="investment-description" data-en="Reduces classroom density (more teachers per student)" data-es="Reduce la densidad de aulas (más maestros por alumno)">
+                                    Reduce la densidad de aulas (más maestros por alumno)
+                                </p>
+                                <div class="investment-footer">
+                                    <div class="investment-level-info">
+                                        <span class="level-label"><span data-en="Cost:" data-es="Costo:">Costo:</span> <strong>$4,000k</strong></span>
+                                        <span class="level-label"><span data-en="Level:" data-es="Nivel:">Nivel:</span> <strong class="level-value" id="level-staffing">0</strong>/3</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-step" data-step="1"></div>
+                                        <div class="progress-step" data-step="2"></div>
+                                        <div class="progress-step" data-step="3"></div>
+                                    </div>
+                                    <button class="btn-invest" data-investment="staffing" data-cost="4000" data-en="Invest" data-es="Invertir">
+                                        Invertir
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Loading Indicator -->
+            <div id="loadingIndicator" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p data-en="Loading data..." data-es="Cargando datos...">Cargando datos...</p>
+            </div>
+
+            <!-- Error Message -->
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+        </div>
+    </section>
+
+    <!-- Load JavaScript modules -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

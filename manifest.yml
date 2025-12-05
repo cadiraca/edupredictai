@@ -1,0 +1,16 @@
+---
+applications:
+- name: edupredict-api
+  memory: 1024M
+  disk_quota: 512M
+  instances: 1
+  buildpacks:
+    - python_buildpack
+  stack: cflinuxfs4
+  health-check-type: http
+  health-check-http-endpoint: /
+  timeout: 180
+  env:
+    PYTHONUNBUFFERED: "1"
+    # Add any other environment variables here
+    # CORS origins will be updated after GitHub Pages deployment
